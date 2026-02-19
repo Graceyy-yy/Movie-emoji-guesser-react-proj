@@ -1,9 +1,9 @@
-#🎬 Guess the Movie (Emoji Edition)
+# 🎬 *Guess the Movie (Emoji Edition)*
 
 A fun, interactive React + TypeScript game where players try to guess movie titles based only on emojis!
 This project is built by two software engineering interns as a way to practice modern front‑end skills while creating something playful, creative, and visually engaging.
 
-###🚀 Features
+### 🚀 Features
 
 🎭 Emoji‑based movie puzzles
 ⏳ Timer mode (optional)
@@ -15,14 +15,14 @@ This project is built by two software engineering interns as a way to practice m
 📱 Fully responsive UI
 
 
-###🧰 Tech Stack
+### 🧰 Tech Stack
 
 1. React (Vite)
 2. TypeScript
 3. CSS 
 
 
-###🎯 Learning Goals
+### 🎯 Learning Goals
 This project helps us practice:
 
 1. Component structuring in React
