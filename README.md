@@ -5,14 +5,14 @@ This project is built by two software engineering interns as a way to practice m
 
 ### 🚀 Features
 
-🎭 Emoji‑based movie puzzles
-⏳ Timer mode (optional)
-⭐ Points & streak system
-🎚️ Difficulty levels
-✨ Smooth animations (optional with Framer Motion)
-🔄 Randomized puzzles each round
-🧠 Add your own movie↔emoji mappings
-📱 Fully responsive UI
+1. Emoji‑based movie puzzles
+2. Timer mode (optional)
+3. Points & streak system
+4. Difficulty levels
+5. Smooth animations (optional with Framer Motion)
+6. Randomized puzzles each round
+7. Add your own movie↔emoji mappings
+8. Fully responsive UI
 
 
 ### 🧰 Tech Stack
