@@ -1,5 +1,4 @@
 import { GiHamburgerMenu } from "react-icons/gi"; 
-import React from 'react'
 import Logo from '../assets/Designer (1).png'
  
 

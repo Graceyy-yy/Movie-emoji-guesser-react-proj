@@ -1,6 +1,5 @@
-import React from 'react'
-import Grace from '../assets/Grace.png'
-import Sfundo from '../assets/Sfundo.png'
+import Grace from '../assets/Grace.png';
+import Sudo from '../assets/Sudo.png';
 
 export const Footer = () => {
   return (
@@ -8,7 +7,7 @@ export const Footer = () => {
 
       Created by yours truly!  
       <a href = "https://github.com/Graceyy-yy"><img  className  = "h-20" src = {Grace} /></a>
-      <a href = "https://github.com/SudoSfundo"><img className  = "h-20" src = {Sfundo} /></a>
+      <a href = "https://github.com/SudoSfundo"><img className  = "h-20" src = {Sudo} /></a>
     </div>
   )
 }
