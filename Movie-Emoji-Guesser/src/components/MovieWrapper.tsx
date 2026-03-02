@@ -28,9 +28,12 @@ return(
 
     <label htmlFor={inputName} >{labelText}</label>
     <input name={inputName} ref={inputRef}></input>
-    <button type="submit">Done</button>
+    <button className = "btn btn-done" type="submit">Done</button>
+    <button className = "btn btn-delete" type="submit">Delete</button>
+    <button className = "btn btn-update" type="submit">Update</button>
 
     </form>
 )
 
 }
+

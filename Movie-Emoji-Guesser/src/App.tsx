@@ -1,6 +1,7 @@
 import './App.css';
 import {Nav} from './components/Nav.js';
 import {Footer} from './components/Footer.js';
+import MovieWrapper from './components/MovieWrapper.js';
 
 function App() {
   
@@ -8,9 +9,7 @@ function App() {
     <>
    
     <Nav />
-    <div className = "text-4xl">
-      Sfundo's component comes here
-    </div>
+    <MovieWrapper />
     <Footer />
     </>
   )
