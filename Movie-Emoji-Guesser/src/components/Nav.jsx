@@ -1,4 +1,4 @@
-import { SlMenu } from "react-icons/sl"; 
+
 import React from 'react'
 import Logo from '../assets/Designer (1).png'
  
@@ -11,7 +11,7 @@ export const Nav = () => {
             Emoji Movie Guesser
         </h1>
 
-        <SlMenu /> 
+        
     </div>
   )
 }
