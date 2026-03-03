@@ -13,21 +13,25 @@
   }
 
   .btn-done {
-    @apply bg-green-500 text-white 
+    @apply bg-green-500 text-white hover:bg-green-200
            
   }
 
 
   .btn-delete {
-    @apply bg-red-600 text-white 
+    @apply bg-red-600 text-white hover:bg-red-400
            
   }
 
   .btn-update{
-    @apply bg-pink-300 text-white
+    @apply bg-pink-300 text-white hover:bg-pink-200
+  }
+
+  .btn-random {
+    @apply bg-orange-400 text-white hover:bg-orange-300
   }
 
   .input {
-    @apply border
+    @apply border border-pink-400 placeholder-pink-200 border-spacing-x-10 hover:bg-pink-50 text-pink-300
   }
 }

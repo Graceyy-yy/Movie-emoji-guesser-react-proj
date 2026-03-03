@@ -9,7 +9,7 @@ function App() {
   return (
     <div className= "border border-pink-500 flex flex-col h-screen">
     <div className = ""><Nav /></div>
-    <div className = "text-4xl flex-1">
+    <div className = "text-4xl flex-1 justify-items-center">
       <MovieWrapper labelText='Insert Name' inputName='userName' actionHandler={()=>console.log("hi testing s")}></MovieWrapper>
     </div>
    <div  className = "justify-self-end "><Footer /></div>
