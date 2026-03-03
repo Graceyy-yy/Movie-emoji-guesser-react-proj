@@ -26,4 +26,8 @@
   .btn-update{
     @apply bg-pink-300 text-white
   }
+
+  .input {
+    @apply border
+  }
 }
