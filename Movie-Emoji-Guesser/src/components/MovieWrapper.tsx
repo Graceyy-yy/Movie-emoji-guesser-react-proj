@@ -24,7 +24,7 @@ export default function MovieWrapper({labelText,inputName,actionHandler}:MovieWr
 
     
 return(
-    <form onSubmit={handleSubmit}>
+    <form className = "justify-items-center" onSubmit={handleSubmit}>
 
     <div className = "font-sans font-bold text-pink-500 py-28 px-28">
       <label htmlFor={inputName} >{labelText}</label>
