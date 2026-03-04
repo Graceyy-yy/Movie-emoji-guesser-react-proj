@@ -5,7 +5,7 @@ import {type user} from '../types/user';
 const UserContext =createContext<user |undefined>(undefined);
 
 export function UserProvider({ children }:{children:ReactNode}){
-    const [name, setName] = useState('');
+    const [name, setName] = useState<string>('');
 
     function login(name:string){setName(name)}
 
