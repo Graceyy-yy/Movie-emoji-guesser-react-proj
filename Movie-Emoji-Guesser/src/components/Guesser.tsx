@@ -3,7 +3,7 @@ import MovieWrapper from './MovieWrapper'
 export const Guesser = () => {
 
   return ( 
-    <div>
+    <div className= 'text-4xl flex-1'>
 
         <div>
             <label className = "bg-yellow-400 font-bold font-mono">
@@ -11,7 +11,7 @@ export const Guesser = () => {
             </label>
         </div>
 
-        <div>
+        <div >
              <MovieWrapper labelText='Guess Movie' inputName='movieguess' actionHandler={(()=> console.log())} />
         </div>
 
