@@ -5,6 +5,7 @@ import './index.css';
 import App from './App.tsx'
 import Root from './Root.tsx';
 import { Guesser } from './components/Guesser.tsx';
+import { UserProvider } from './context/UserContext.tsx';
 
 
  const router = createBrowserRouter([
@@ -24,7 +25,8 @@ import { Guesser } from './components/Guesser.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    
+    <UserProvider>
   <RouterProvider router={router}/>
+  </UserProvider>
   </StrictMode>
 )
