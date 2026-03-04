@@ -1,0 +1,318 @@
+[
+  {
+    "id": 1,
+    "emojis": [
+      "🧑‍🚀",
+      "🌕"
+    ],
+    "answer": "Apollo 13"
+  },
+  {
+    "id": 2,
+    "emojis": [
+      "🚢",
+      "🧊",
+      "💔"
+    ],
+    "answer": "Titanic"
+  },
+  {
+    "id": 3,
+    "emojis": [
+      "🧙‍♂️",
+      "💍",
+      "🌋"
+    ],
+    "answer": "The Lord of the Rings"
+  },
+  {
+    "id": 4,
+    "emojis": [
+      "🦕",
+      "🏝️",
+      "⚡"
+    ],
+    "answer": "Jurassic Park"
+  },
+  {
+    "id": 5,
+    "emojis": [
+      "🦇",
+      "🌃",
+      "🤵"
+    ],
+    "answer": "The Dark Knight"
+  },
+  {
+    "id": 6,
+    "emojis": [
+      "🏎️",
+      "🔥",
+      "🕶️"
+    ],
+    "answer": "Fast & Furious"
+  },
+  {
+    "id": 7,
+    "emojis": [
+      "👽",
+      "📞",
+      "🏠"
+    ],
+    "answer": "E.T. the Extra-Terrestrial"
+  },
+  {
+    "id": 8,
+    "emojis": [
+      "🧠",
+      "🌀",
+      "💭"
+    ],
+    "answer": "Inception"
+  },
+  {
+    "id": 9,
+    "emojis": [
+      "🕸️",
+      "🕷️",
+      "🗽"
+    ],
+    "answer": "Spider-Man"
+  },
+  {
+    "id": 10,
+    "emojis": [
+      "🧛",
+      "🩸",
+      "🏰"
+    ],
+    "answer": "Dracula"
+  },
+  {
+    "id": 11,
+    "emojis": [
+      "👻",
+      "📸",
+      "🏠"
+    ],
+    "answer": "Paranormal Activity"
+  },
+  {
+    "id": 12,
+    "emojis": [
+      "🧑‍🚀",
+      "🌌",
+      "🤖"
+    ],
+    "answer": "Interstellar"
+  },
+  {
+    "id": 13,
+    "emojis": [
+      "🧑‍🏫",
+      "🎻",
+      "🔥"
+    ],
+    "answer": "Whiplash"
+  },
+  {
+    "id": 14,
+    "emojis": [
+      "🧔",
+      "🪓",
+      "🏨",
+      "❄️"
+    ],
+    "answer": "The Shining"
+  },
+  {
+    "id": 15,
+    "emojis": [
+      "🧑‍⚖️",
+      "⚖️",
+      "🗣️"
+    ],
+    "answer": "12 Angry Men"
+  },
+  {
+    "id": 16,
+    "emojis": [
+      "🕵️‍♂️",
+      "📂",
+      "7️⃣"
+    ],
+    "answer": "Se7en"
+  },
+  {
+    "id": 17,
+    "emojis": [
+      "🐼",
+      "🥋",
+      "🍜"
+    ],
+    "answer": "Kung Fu Panda"
+  },
+  {
+    "id": 18,
+    "emojis": [
+      "🎈",
+      "🏠",
+      "🌧️"
+    ],
+    "answer": "Up"
+  },
+  {
+    "id": 19,
+    "emojis": [
+      "🧑‍🍳",
+      "🐀",
+      "🍲"
+    ],
+    "answer": "Ratatouille"
+  },
+  {
+    "id": 20,
+    "emojis": [
+      "🤖",
+      "🌍",
+      "🧹"
+    ],
+    "answer": "WALL·E"
+  },
+  {
+    "id": 21,
+    "emojis": [
+      "🧙‍♂️",
+      "⚡",
+      "🏰"
+    ],
+    "answer": "Harry Potter"
+  },
+  {
+    "id": 22,
+    "emojis": [
+      "🏴‍☠️",
+      "🗺️",
+      "🍾"
+    ],
+    "answer": "Pirates of the Caribbean"
+  },
+  {
+    "id": 23,
+    "emojis": [
+      "🧑‍🚀",
+      "👨‍🚀",
+      "🚀",
+      "🪐"
+    ],
+    "answer": "The Martian"
+  },
+  {
+    "id": 24,
+    "emojis": [
+      "🧑‍🌾",
+      "🌪️",
+      "🟨"
+    ],
+    "answer": "The Wizard of Oz"
+  },
+  {
+    "id": 25,
+    "emojis": [
+      "🧑‍⚕️",
+      "🧠",
+      "🧬"
+    ],
+    "answer": "A Beautiful Mind"
+  },
+  {
+    "id": 26,
+    "emojis": [
+      "🦍",
+      "🏙️",
+      "🛩️"
+    ],
+    "answer": "King Kong"
+  },
+  {
+    "id": 27,
+    "emojis": [
+      "🦸‍♂️",
+      "💍",
+      "🟩"
+    ],
+    "answer": "Green Lantern"
+  },
+  {
+    "id": 28,
+    "emojis": [
+      "🧑‍🚒",
+      "🔥",
+      "👨‍👧"
+    ],
+    "answer": "Backdraft"
+  },
+  {
+    "id": 29,
+    "emojis": [
+      "🕰️",
+      "🚗",
+      "⚡"
+    ],
+    "answer": "Back to the Future"
+  },
+  {
+    "id": 30,
+    "emojis": [
+      "🧑‍🌾",
+      "🚜",
+      "⚾"
+    ],
+    "answer": "Field of Dreams"
+  },
+  {
+    "id": 31,
+    "emojis": [
+      "🧛",
+      "🌞",
+      "💏"
+    ],
+    "answer": "Twilight"
+  },
+  {
+    "id": 32,
+    "emojis": [
+      "🧑‍🎤",
+      "👑",
+      "🎤"
+    ],
+    "answer": "Bohemian Rhapsody"
+  },
+  {
+    "id": 33,
+    "emojis": [
+      "🧑‍⚕️",
+      "🏥",
+      "💉"
+    ],
+    "answer": "Patch Adams"
+  },
+  {
+    "id": 34,
+    "emojis": [
+      "🧟",
+      "🏃",
+      "🇬🇧"
+    ],
+    "answer": "28 Days Later"
+  },
+  {
+    "id": 35,
+    "emojis": [
+      "👩‍❤️‍👨",
+      "📓",
+      "🌧️"
+    ],
+    "answer": "The Notebook"
+  }
+]
