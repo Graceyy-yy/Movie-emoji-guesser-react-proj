@@ -16,11 +16,11 @@ export const Nav = () => {
     </div>
       
 
-    {/* <div className = " justify-self-end px-40 h-2 hover:bg-white"> */}
-      <button className = "flex-col flex-1 pl-28 ">
+    
+      <button className = "flex justify-self-end px-44">
         <GiHamburgerMenu />
       </button> 
-    {/* </div> */}
+
 
 
     </div>
