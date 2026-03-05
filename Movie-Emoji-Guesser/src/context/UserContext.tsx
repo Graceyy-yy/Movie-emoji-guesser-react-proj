@@ -9,8 +9,10 @@ export function UserProvider({ children }:{children:ReactNode}){
 
     function login(name:string){setName(name)}
 
+    const value:user = {name,login}
+
     return (
-        <UserContext.Provider value={{name, login}}>
+        <UserContext.Provider value={value}>
             {children}
         </UserContext.Provider>
     )

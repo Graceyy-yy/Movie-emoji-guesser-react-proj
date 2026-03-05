@@ -1,13 +1,18 @@
+import { useUser } from '../context/useUser'
 import MovieWrapper from './MovieWrapper'
 
+
+
 export const Guesser = () => {
+
+const {name} =useUser();
 
   return ( 
     <div className= 'text-4xl flex-1'>
 
         <div>
             <label className = "bg-yellow-400 font-bold font-mono">
-               Hi {}! You have {} guesses left.
+               Hi {name}! You have {5} guesses left.
             </label>
         </div>
 
