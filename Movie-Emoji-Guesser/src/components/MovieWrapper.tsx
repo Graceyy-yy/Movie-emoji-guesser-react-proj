@@ -1,5 +1,6 @@
 import React ,{ useRef} from "react";
 
+
 type MovieWrapperProps={
 
    
@@ -11,10 +12,13 @@ type MovieWrapperProps={
 }
 
 
+
 export default function MovieWrapper({labelText,inputName,actionHandler}:MovieWrapperProps){
 
     const inputRef= useRef<HTMLInputElement>(null);
 
+  
+    //const {name} = useUser();
     
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
