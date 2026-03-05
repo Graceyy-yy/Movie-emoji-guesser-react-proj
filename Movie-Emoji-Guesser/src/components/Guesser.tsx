@@ -12,7 +12,7 @@ const {name} =useUser();
 
         <div className = "justify-self-end">
             <label className = "text-yellow-400 font-bold font-mono text-1xl ">
-               Hi! You have {} guesses left.
+               Hi {name}! You have {5} guesses left.
             </label>
         </div>
 
