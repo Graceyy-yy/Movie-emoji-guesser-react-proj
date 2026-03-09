@@ -66,6 +66,10 @@ export const Guesser = () => {
     navigate('/');
   };
 
+  const retryGuess = () => {
+    navigate(0);
+  };
+
   return (
     <div className="text-4xl flex-1">
       <div className="justify-self-end">
@@ -110,9 +114,33 @@ export const Guesser = () => {
               Game Over 🎉
             </h2>
 
+            
+
+            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over !</h2>
+
             <p className="text-xl text-gray-700 mb-4">
               You scored <span className="font-bold">{score}</span> out of 10!
             </p>
+
+            <div>
+            </div>
+            
+           
+              <button
+              onClick={closePopup}
+              className=" font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
+            >
+             Close
+            </button>
+      
+             <button
+              onClick={retryGuess}
+              className="  font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
+                  >
+             Retry 
+            </button>
+           
+
           </div>
         </div>
       )}
