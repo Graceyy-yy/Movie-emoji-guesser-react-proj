@@ -1,60 +1,96 @@
-import { useState,useCallback } from 'react';
-import { useUser } from '../context/useUser'
-import MovieWrapper from './MovieWrapper'
+import { useState, useCallback } from 'react';
+import { useUser } from '../context/useUser';
+import MovieWrapper from './MovieWrapper';
 import { useNavigate } from 'react-router-dom';
+import MoviesDataset from '../data/movies.json';
+import { type MovieType } from '../types/MovieType';
+
+const movieItems = MoviesDataset as MovieType[];
+
+function pickRandomMovie(items: MovieType[]): MovieType | null {
+  if (!Array.isArray(items) || items.length === 0) return null;
+  const idx = Math.floor(Math.random() * items.length);
+  return items[idx];
+}
+
+function emojisToString(emojis: string[], joiner = ' ') {
+  return emojis.join(joiner);
+}
+
+function getRandomPuzzle() {
+  const m = pickRandomMovie(movieItems);
+  return {
+    emojisStr: m ? emojisToString(m.emojis, ' ') : '',
+    answer: m ? m.answer : '',
+  };
+}
 
 export const Guesser = () => {
-  const [guess, setGuess] = useState(10);
-  const [score, setScore] = useState(0);        
-  const [showPopup, setShowPopup] = useState(false); 
-
   const { name } = useUser();
   const navigate = useNavigate();
 
+  const [{ emojisStr, answer }, setPuzzle] = useState(() => getRandomPuzzle());
+  const [guessesLeft, setGuessesLeft] = useState<number>(10);
+  const [score, setScore] = useState<number>(0);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
- const handleGuess = useCallback(() => {
-  setGuess(prev => {
-    const newGuess = Math.max(0, prev - 1);
+  const handleRandomize = useCallback(() => {
+    setPuzzle(getRandomPuzzle());
+  }, []);
 
-    if (newGuess === 0) {
-      setShowPopup(true);
-    }
+  const handleGuess = useCallback(
+    (text: string) => {
+      const guess = text.trim();
+      if (!guess) return;
 
-    return newGuess;
-  });
-}, []);
-  
+      const isCorrect = !!answer && guess.toLowerCase() === answer.toLowerCase();
 
+      setGuessesLeft((prev) => {
+        const next = Math.max(0, prev - 1);
+
+        if (isCorrect) {
+          setScore((s) => s + 1);
+          if (next > 0) handleRandomize();
+        }
+
+        if (next === 0) setShowPopup(true);
+         handleRandomize();
+        return next;
+      });
+    },
+    [answer, handleRandomize]
+   
+  );
 
   const closePopup = () => {
-    navigate("/");  
+    navigate('/');
   };
 
   return (
-    <div className='text-4xl flex-1'>
-
+    <div className="text-4xl flex-1">
       <div className="justify-self-end">
         <label className="text-yellow-400 font-bold font-mono text-1xl">
-          Hi {name || 'Player'}! You have {guess} {guess === 1 ? 'guess' : 'guesses'} left.
+          Hi {name || 'Player'}! You have {guessesLeft}{' '}
+          {guessesLeft === 1 ? 'guess' : 'guesses'} left.
         </label>
       </div>
 
+
+
       <div>
         <MovieWrapper
-          labelText='Guess Movie'
-          inputName='movieGuess'
-          actionHandler={() => handleGuess()}
-          disabled={guess === 0}
-          onCorrect = {() => setScore(prev => prev + 1)}
+          labelText= {emojisStr || 'Click Randomize to start 🎲'}
+          inputName="movieGuess"
+          actionHandler={handleGuess}
+          disabled={guessesLeft === 0}
         />
       </div>
 
       <div className="flex justify-self-center">
-        <button className="btn btn-random" onClick={() => console.log("Randomizing")}>
+        <button className="btn btn-random" onClick={handleRandomize}>
           Randomize
         </button>
       </div>
-
 
       {showPopup && (
         <div
@@ -63,7 +99,6 @@ export const Guesser = () => {
           aria-modal="true"
         >
           <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
-
             <button
               onClick={closePopup}
               className="absolute top-3 right-3 text-white hover:text-pink-400 text-2xl"
@@ -71,16 +106,16 @@ export const Guesser = () => {
               ×
             </button>
 
-            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over 🎉</h2>
+            <h2 className="text-3xl font-bold mb-3 text-yellow-500">
+              Game Over 🎉
+            </h2>
 
             <p className="text-xl text-gray-700 mb-4">
               You scored <span className="font-bold">{score}</span> out of 10!
             </p>
-
           </div>
         </div>
       )}
-
     </div>
   );
 };
