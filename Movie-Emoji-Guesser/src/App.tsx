@@ -12,7 +12,7 @@ const navigate =useNavigate();
   
    
     <div className = "text-4xl flex-1">
-      <MovieWrapper labelText='Insert Name' inputName='userName' actionHandler={()=>navigate(`/Guesser`)}></MovieWrapper>
+      <MovieWrapper labelText='Insert Name' inputName='userName' actionHandler={()=>navigate(`/Guesser`)} disabled userDisabled></MovieWrapper>
     </div>
    
   )
