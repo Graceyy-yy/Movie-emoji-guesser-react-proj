@@ -66,7 +66,7 @@ export const Guesser = () => {
 
             
 
-            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over 🎉</h2>
+            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over !</h2>
 
             <p className="text-xl text-gray-700 mb-4">
               You scored <span className="font-bold">{score}</span> out of 10!

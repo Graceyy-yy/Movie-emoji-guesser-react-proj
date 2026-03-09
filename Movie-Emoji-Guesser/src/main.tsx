@@ -6,6 +6,7 @@ import App from './App.tsx'
 import Root from './Root.tsx';
 import { Guesser } from './components/Guesser.tsx';
 import { UserProvider } from './context/UserContext.tsx';
+import { MovieList } from './components/MovieList.tsx';
 
 
  const router = createBrowserRouter([
@@ -15,6 +16,8 @@ import { UserProvider } from './context/UserContext.tsx';
     children:[
       {index: true, element: <App/>}
     ,{path:'Guesser', element:<Guesser/>}
+    ,{path:'MovieList', element:<MovieList/>}
+
 
    
 

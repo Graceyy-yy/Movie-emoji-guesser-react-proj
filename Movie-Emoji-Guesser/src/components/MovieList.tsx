@@ -1,7 +1,10 @@
 import React from 'react'
 
+
 export const MovieList = () => {
   return (
-    <div>MovieList</div>
+    <div className= 'text-4xl flex-1'>
+        
+    </div>
   )
 }
