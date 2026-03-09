@@ -1,318 +1,177 @@
 [
   {
     "id": 1,
-    "emojis": [
-      "🧑‍🚀",
-      "🌕"
-    ],
-    "answer": "Apollo 13"
+    "emojis": ["🧑‍🚀", "🌌", "💙"],
+    "answer": "Avatar"
   },
   {
     "id": 2,
-    "emojis": [
-      "🚢",
-      "🧊",
-      "💔"
-    ],
-    "answer": "Titanic"
+    "emojis": ["🪐", "⚔️", "👁️"],
+    "answer": "Dune: Part Two"
   },
   {
     "id": 3,
-    "emojis": [
-      "🧙‍♂️",
-      "💍",
-      "🌋"
-    ],
-    "answer": "The Lord of the Rings"
+    "emojis": ["🗡️", "🐺", "🤣"],
+    "answer": "Deadpool & Wolverine"
   },
   {
     "id": 4,
-    "emojis": [
-      "🦕",
-      "🏝️",
-      "⚡"
-    ],
-    "answer": "Jurassic Park"
+    "emojis": ["😊", "😡", "😭", "😱"],
+    "answer": "Inside Out 2"
   },
   {
     "id": 5,
-    "emojis": [
-      "🦇",
-      "🌃",
-      "🤵"
-    ],
-    "answer": "The Dark Knight"
+    "emojis": ["🎬", "💥", "🚗"],
+    "answer": "The Fall Guy"
   },
   {
     "id": 6,
-    "emojis": [
-      "🏎️",
-      "🔥",
-      "🕶️"
-    ],
-    "answer": "Fast & Furious"
+    "emojis": ["🌪️", "🌪️", "🚨"],
+    "answer": "Twisters"
   },
   {
     "id": 7,
-    "emojis": [
-      "👽",
-      "📞",
-      "🏠"
-    ],
-    "answer": "E.T. the Extra-Terrestrial"
+    "emojis": ["🚚", "🔥", "⚙️"],
+    "answer": "Furiosa: A Mad Max Saga"
   },
   {
     "id": 8,
-    "emojis": [
-      "🧠",
-      "🌀",
-      "💭"
-    ],
-    "answer": "Inception"
+    "emojis": ["🦔", "⚡", "🎮"],
+    "answer": "Sonic the Hedgehog 3"
   },
   {
     "id": 9,
-    "emojis": [
-      "🕸️",
-      "🕷️",
-      "🗽"
-    ],
-    "answer": "Spider-Man"
+    "emojis": ["🌆", "✨", "🪷"],
+    "answer": "All We Imagine as Light"
   },
   {
     "id": 10,
-    "emojis": [
-      "🧛",
-      "🩸",
-      "🏰"
-    ],
-    "answer": "Dracula"
+    "emojis": ["🏫", "💔", "👀"],
+    "answer": "Girls Will Be Girls"
   },
   {
     "id": 11,
-    "emojis": [
-      "👻",
-      "📸",
-      "🏠"
-    ],
-    "answer": "Paranormal Activity"
+    "emojis": ["🤖", "🌲", "🦊"],
+    "answer": "The Wild Robot"
   },
   {
     "id": 12,
-    "emojis": [
-      "🧑‍🚀",
-      "🌌",
-      "🤖"
-    ],
-    "answer": "Interstellar"
+    "emojis": ["🌳", "⚖️", "🇮🇷"],
+    "answer": "The Seed of the Sacred Fig"
   },
   {
     "id": 13,
-    "emojis": [
-      "🧑‍🏫",
-      "🎻",
-      "🔥"
-    ],
-    "answer": "Whiplash"
+    "emojis": ["🧛‍♂️", "📞", "🕯️"],
+    "answer": "Longlegs"
   },
   {
     "id": 14,
-    "emojis": [
-      "🧔",
-      "🪓",
-      "🏨",
-      "❄️"
-    ],
-    "answer": "The Shining"
+    "emojis": ["🎵", "😱", "🪤"],
+    "answer": "Trap"
   },
   {
     "id": 15,
-    "emojis": [
-      "🧑‍⚖️",
-      "⚖️",
-      "🗣️"
-    ],
-    "answer": "12 Angry Men"
+    "emojis": ["😈", "👶", "🩸"],
+    "answer": "The First Omen"
   },
   {
     "id": 16,
-    "emojis": [
-      "🕵️‍♂️",
-      "📂",
-      "7️⃣"
-    ],
-    "answer": "Se7en"
+    "emojis": ["💣", "🧪", "🌑"],
+    "answer": "Oppenheimer"
   },
   {
     "id": 17,
-    "emojis": [
-      "🐼",
-      "🥋",
-      "🍜"
-    ],
-    "answer": "Kung Fu Panda"
+    "emojis": ["💗", "👠", "🎀"],
+    "answer": "Barbie"
   },
   {
     "id": 18,
-    "emojis": [
-      "🎈",
-      "🏠",
-      "🌧️"
-    ],
-    "answer": "Up"
+    "emojis": ["🕷️", "🌀", "🧑‍🎨"],
+    "answer": "Spider-Man: Across the Spider-Verse"
   },
   {
     "id": 19,
-    "emojis": [
-      "🧑‍🍳",
-      "🐀",
-      "🍲"
-    ],
-    "answer": "Ratatouille"
+    "emojis": ["🖤", "🔫", "🗼"],
+    "answer": "John Wick: Chapter 4"
   },
   {
     "id": 20,
-    "emojis": [
-      "🤖",
-      "🌍",
-      "🧹"
-    ],
-    "answer": "WALL·E"
+    "emojis": ["👽", "💥", "🧑‍🚀"],
+    "answer": "The Marvels"
   },
   {
     "id": 21,
-    "emojis": [
-      "🧙‍♂️",
-      "⚡",
-      "🏰"
-    ],
-    "answer": "Harry Potter"
+    "emojis": ["🏎️", "🇮🇹", "🏁"],
+    "answer": "Ferrari"
   },
   {
     "id": 22,
-    "emojis": [
-      "🏴‍☠️",
-      "🗺️",
-      "🍾"
-    ],
-    "answer": "Pirates of the Caribbean"
+    "emojis": ["🎭", "🦸‍♂️", "🦹‍♀️"],
+    "answer": "Madame Web"
   },
   {
     "id": 23,
-    "emojis": [
-      "🧑‍🚀",
-      "👨‍🚀",
-      "🚀",
-      "🪐"
-    ],
-    "answer": "The Martian"
+    "emojis": ["🧛‍♀️", "🌙", "🩸"],
+    "answer": "Abigail"
   },
   {
     "id": 24,
-    "emojis": [
-      "🧑‍🌾",
-      "🌪️",
-      "🟨"
-    ],
-    "answer": "The Wizard of Oz"
+    "emojis": ["🧟", "🏬", "🔫"],
+    "answer": "The Walking Dead: The Ones Who Live"
   },
   {
     "id": 25,
-    "emojis": [
-      "🧑‍⚕️",
-      "🧠",
-      "🧬"
-    ],
-    "answer": "A Beautiful Mind"
+    "emojis": ["🧙‍♀️", "🎶", "✨"],
+    "answer": "Wicked"
   },
   {
     "id": 26,
-    "emojis": [
-      "🦍",
-      "🏙️",
-      "🛩️"
-    ],
-    "answer": "King Kong"
+    "emojis": ["⚡", "🎸", "🤘"],
+    "answer": "Bob Marley: One Love"
   },
   {
     "id": 27,
-    "emojis": [
-      "🦸‍♂️",
-      "💍",
-      "🟩"
-    ],
-    "answer": "Green Lantern"
+    "emojis": ["🎾", "🔥", "💔"],
+    "answer": "Challengers"
   },
   {
     "id": 28,
-    "emojis": [
-      "🧑‍🚒",
-      "🔥",
-      "👨‍👧"
-    ],
-    "answer": "Backdraft"
+    "emojis": ["🐦", "🔍", "🌲"],
+    "answer": "The Blue Finch"
   },
   {
     "id": 29,
-    "emojis": [
-      "🕰️",
-      "🚗",
-      "⚡"
-    ],
-    "answer": "Back to the Future"
+    "emojis": ["👨‍🍳", "🔥", "🍽️"],
+    "answer": "The Taste of Things"
   },
   {
     "id": 30,
-    "emojis": [
-      "🧑‍🌾",
-      "🚜",
-      "⚾"
-    ],
-    "answer": "Field of Dreams"
+    "emojis": ["🐉", "⚔️", "🌋"],
+    "answer": "House of the Dragon"
   },
   {
     "id": 31,
-    "emojis": [
-      "🧛",
-      "🌞",
-      "💏"
-    ],
-    "answer": "Twilight"
+    "emojis": ["🪶", "🏕️", "🔦"],
+    "answer": "Evil Does Not Exist"
   },
   {
     "id": 32,
-    "emojis": [
-      "🧑‍🎤",
-      "👑",
-      "🎤"
-    ],
-    "answer": "Bohemian Rhapsody"
+    "emojis": ["🪞", "🌫️", "👁️"],
+    "answer": "Poor Things"
   },
   {
     "id": 33,
-    "emojis": [
-      "🧑‍⚕️",
-      "🏥",
-      "💉"
-    ],
-    "answer": "Patch Adams"
+    "emojis": ["🎤", "🐦", "⭐"],
+    "answer": "Bohemian Rhapsody (Re-release)"
   },
   {
     "id": 34,
-    "emojis": [
-      "🧟",
-      "🏃",
-      "🇬🇧"
-    ],
-    "answer": "28 Days Later"
+    "emojis": ["👩‍❤️‍💋‍👨", "📱", "💬"],
+    "answer": "Love at First Swipe"
   },
   {
     "id": 35,
-    "emojis": [
-      "👩‍❤️‍👨",
-      "📓",
-      "🌧️"
-    ],
-    "answer": "The Notebook"
+    "emojis": ["🤖", "🧠", "🌐"],
+    "answer": "The Creator"
   }
 ]

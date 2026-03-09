@@ -64,18 +64,20 @@ export const Guesser = () => {
         >
           <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
 
-            <button
-              onClick={closePopup}
-              className="absolute top-3 right-3 text-white hover:text-pink-400 text-2xl"
-            >
-              ×
-            </button>
+            
 
             <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over 🎉</h2>
 
             <p className="text-xl text-gray-700 mb-4">
               You scored <span className="font-bold">{score}</span> out of 10!
             </p>
+
+            <button
+              onClick={closePopup}
+              className=" font-bold px-2 py-2  text-white text-xl rounded bg-red-600 hover:bg-red-500"
+            >
+             Close
+            </button>
 
           </div>
         </div>
