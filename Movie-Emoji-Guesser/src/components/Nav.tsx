@@ -57,7 +57,7 @@ export const Nav = () => {
               <button
                 key={it.label}
                 role="menuitem"
-                className="w-full text-left px-3 py-2 rounded-lg text-gray-800 hover:bg-pink-50 hover:text-pink-700 focus:bg-pink-100 focus:outline-none"
+                className="w-full text-left px-3 py-2 rounded-lg text-gray-800 hover:bg-pink-50 hover:text-pink-400 focus:bg-pink-100 focus:outline-none"
                 onClick={() => {
                   setOpen(false);
                   it.action();
@@ -71,7 +71,7 @@ export const Nav = () => {
             <button
               role="menuitem"
               onClick={() => setOpen(false)}
-              className="w-full text-left px-3 py-2 rounded-lg text-gray-500 hover:bg-gray-50"
+              className="w-full text-left px-3 py-2 rounded-lg text-gray-500 hover:bg-red-100  hover:text-red-600"
             >
               Close Menu
             </button>

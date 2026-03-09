@@ -30,6 +30,10 @@ export const Guesser = () => {
     navigate("/");  
   };
 
+  const retryGuess = () => {
+    navigate(0);
+  };
+
   return (
     <div className='text-4xl flex-1'>
 
@@ -72,12 +76,24 @@ export const Guesser = () => {
               You scored <span className="font-bold">{score}</span> out of 10!
             </p>
 
-            <button
+            <div>
+            </div>
+            
+           
+              <button
               onClick={closePopup}
-              className=" font-bold px-2 py-2  text-white text-xl rounded bg-red-600 hover:bg-red-500"
+              className=" font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
             >
              Close
             </button>
+      
+             <button
+              onClick={retryGuess}
+              className="  font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
+                  >
+             Retry 
+            </button>
+           
 
           </div>
         </div>
