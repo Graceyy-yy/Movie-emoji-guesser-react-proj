@@ -111,12 +111,8 @@ export const Guesser = () => {
             </button>
 
             <h2 className="text-3xl font-bold mb-3 text-yellow-500">
-              Game Over 🎉
+              Game Over !
             </h2>
-
-            
-
-            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over !</h2>
 
             <p className="text-xl text-gray-700 mb-4">
               You scored <span className="font-bold">{score}</span> out of 10!
@@ -128,14 +124,14 @@ export const Guesser = () => {
            
               <button
               onClick={closePopup}
-              className=" font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
+              className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
             >
              Close
             </button>
       
              <button
               onClick={retryGuess}
-              className="  font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
+              className="font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
                   >
              Retry 
             </button>
