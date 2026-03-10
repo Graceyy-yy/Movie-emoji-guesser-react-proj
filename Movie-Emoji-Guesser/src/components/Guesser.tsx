@@ -118,10 +118,7 @@ export const Guesser = () => {
               You scored <span className="font-bold">{score}</span> out of 10!
             </p>
 
-            <div>
-            </div>
-            
-           
+            <div className = " mt-auto flex gap-6 p-6 justify-center">
               <button
               onClick={closePopup}
               className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
@@ -136,6 +133,9 @@ export const Guesser = () => {
              Retry 
             </button>
            
+            </div>
+         
+              
 
           </div>
         </div>
