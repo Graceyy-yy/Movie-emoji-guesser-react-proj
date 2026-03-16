@@ -52,6 +52,7 @@ const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answ
     )
     )
   )
+  console.log(`Just updated the movie wih id: +id+ ${newAnswer} and emjos: ${newEmojis.toString}`)
 }, [])
   return (
 
