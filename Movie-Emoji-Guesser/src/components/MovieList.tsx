@@ -1,12 +1,48 @@
 import React from 'react'
 import MoviesDataset from '../data/movies.json'
 import type { MovieType } from '../types/MovieType'
+import { useEffect,useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const movies= MoviesDataset as MovieType[];
 
 export const MovieList = () => {
+  
+  const Storage_Key= 'AllMovies'
+
+  //to Initialize from local Storage eelse fall back to bundled dataset
+
+  const [movis,setMovis] = useState<MovieType[]>(()=>{
+    try{
+      if (typeof window=='undefined') return movies
+      const raw = localStorage.getItem(Storage_Key)
+      const parsed = raw? (JSON.parse(raw) as MovieType[]):null
+      return Array.isArray(parsed)? parsed:movies
+    }catch{
+    return movies}
+
+  })
+
+  //Persist whenever movis chnages
+
+  useEffect(()=>{
+    try {
+      if (typeof window !== 'undefined'){
+        localStorage.setItem(Storage_Key,JSON.stringify(movis))
+
+      }
+    }
+      catch{
+        //
+      }
+    
+  },[movis])
+
+  const deleteHandler =useCallback((id:MovieType['id']) =>{
+    setMovis(prev=> prev.filter(movie=>movie.id !==id))
+    console.log('jst deleted movie with id: '+id)
+  },[])
    const [showPopup, setShowPopup] = useState<boolean>(false);
    const navigate = useNavigate();
 
@@ -34,10 +70,10 @@ export const MovieList = () => {
     <div className= 'text-4xl flex flex-wrap gap-8 justify-center p-6'>
 
     
-        {movies.map((movie)=>(
+        {movis.map((movie)=>(
 
-          <ul>
-               <li key ={movie.id}>
+          <ul key ={movie.id}>
+               <li >
 
         <div className = "flex flex-col border  rounded-xl bg-pink-300 w-52 h-96 hover:bg-pink-200 overflow-hidden">
             <img className = "w-full h-56 object-cover" src={`../src/images/${movie.answer}.jpg`} alt={`${movie.answer} image`}/>
@@ -50,7 +86,7 @@ export const MovieList = () => {
 
           <div className = " mt-auto flex gap-4 p-2 justify-center">
             <button className = " btn btn-random">Edit</button>
-            <button className = " btn btn-delete" >Delete</button>
+            <button className = " btn btn-delete"  onClick={()=>deleteHandler(movie.id)}>Delete</button>
           </div>
           
           </div>
