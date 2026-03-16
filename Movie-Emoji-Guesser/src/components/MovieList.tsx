@@ -47,26 +47,24 @@ export const MovieList = () => {
    const navigate = useNavigate();
 
      const closePopup = () => {
-    navigate('/');
+    navigate(0);
   };
 
   return (
 
     <div>
-      <div className = "flex flex-wrap">
+      <div>
            <h1 className = "text-yellow-500 text-6xl font-bold font-mono justify-self-center p-8">
         🌸 List of movies 🌸
            </h1>
-              
-      <button className="h-10 w-20 text-xs btn btn-done" onClick={() => setShowPopup(true)}
->
-  Add Movie
-</button>
-
       </div>
-     
 
-
+    <div className='justify-self-end px-24'>
+      <button className="h-12 w-30 text-xs btn btn-done" onClick={() => setShowPopup(true)}>
+         Add Movie
+      </button>
+    </div>
+    
     <div className= 'text-4xl flex flex-wrap gap-8 justify-center p-6'>
 
     

@@ -36,6 +36,6 @@
   }
 
 .input-add {
-    @apply border border-pink-400 placeholder-pink-200 border-spacing-x-10 hover:bg-pink-50 text-pink-300
+    @apply border border-pink-400 placeholder-pink-200 hover:bg-pink-50 text-pink-300 border-collapse
   }
 }
