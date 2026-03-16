@@ -3,6 +3,7 @@ import MoviesDataset from '../data/movies.json'
 import type { MovieType } from '../types/MovieType'
 import { useEffect,useCallback, useState } from 'react';
 
+
 const movies= MoviesDataset as MovieType[];
 
 export const MovieList = () => {
@@ -41,6 +42,17 @@ export const MovieList = () => {
     setMovis(prev=> prev.filter(movie=>movie.id !==id))
     console.log('jst deleted movie with id: '+id)
   },[])
+
+const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answer'], newEmojis:MovieType['emojis']) => {
+  setMovis(prev =>
+    prev.map(item =>(
+      item.id === id
+        ? { ...item, answer: newAnswer, emojis: newEmojis }
+        : item
+    )
+    )
+  )
+}, [])
   return (
 
     <div>
@@ -65,7 +77,7 @@ export const MovieList = () => {
             
 
           <div className = " mt-auto flex gap-4 p-2 justify-center">
-            <button className = " btn btn-random">Edit</button>
+            <button className = " btn btn-random" onClick={()=>updateHandler(movie.id,"",[])}>Edit</button>
             <button className = " btn btn-delete"  onClick={()=>deleteHandler(movie.id)}>Delete</button>
           </div>
           
