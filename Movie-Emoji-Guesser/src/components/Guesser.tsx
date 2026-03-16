@@ -115,7 +115,7 @@ export const Guesser = () => {
             </h2>
 
             <p className="text-xl text-gray-700 mb-4">
-              You scored <span className="font-bold">{score}</span> out of 10!
+              You scored <span className="font-bold">{score/2}</span> out of 10!
             </p>
 
             <div className = " mt-auto flex gap-6 p-6 justify-center">
