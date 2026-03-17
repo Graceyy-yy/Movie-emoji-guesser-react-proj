@@ -87,11 +87,13 @@ export const Guesser = () => {
           inputName="movieGuess"
           actionHandler={handleGuess}
           disabled={guessesLeft === 0}
+          
         />
       </div>
 
       <div className="flex justify-self-center">
-        <button className="btn btn-random" onClick={handleRandomize}>
+        <button className="btn btn-random" onClick={handleRandomize} 
+        >
           Randomize
         </button>
       </div>

@@ -8,6 +8,11 @@ import { useState } from 'react';
 const movies= MoviesDataset as MovieType[];
 
 export const MovieList = () => {
+  const [newAnswer, setNewAnswer] = useState<string>('');
+  const [newEmoji, setNewEmoji] = useState<string>('');
+  const [newImage, setNewImage] = useState<string>('');
+  const [showAdded, setShowAdded] =useState<boolean>(false);
+
   
   const Storage_Key= 'AllMovies'
 
@@ -50,6 +55,31 @@ export const MovieList = () => {
     navigate(0);
   };
 
+  const AddMovieHandler = useCallback(() => {
+    if(!newAnswer.trim() || !newEmoji.trim()) return;
+  
+    const newMovie: MovieType ={
+      id:Math.random(),
+      emojis: newEmoji.trim().split(/\s + /),
+      answer: newAnswer.trim(),
+      imageBase64 : newImage || undefined,
+    };
+
+    setMovis(prev => [...prev,newMovie]);
+    setNewAnswer('');
+    setNewEmoji('');
+    setNewImage('');
+    
+  }, [newAnswer, newEmoji, newImage])
+
+  const ImageUploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () =>setNewImage(reader.result as string);
+    reader.readAsDataURL(file);
+  
+  }
   return (
 
     <div>
@@ -74,7 +104,7 @@ export const MovieList = () => {
                <li >
 
         <div className = "flex flex-col border  rounded-xl bg-pink-300 w-52 h-96 hover:bg-pink-200 overflow-hidden">
-            <img className = "w-full h-56 object-cover" src={`../src/images/${movie.answer}.jpg`} alt={`${movie.answer} image`}/>
+            <img className = "w-full h-56 object-cover" src={movie.imageBase64 ?? `../src/images/${movie.answer}.jpg`} alt={`${movie.answer} image`}/>
 
             <div className = "px-3 pt-3">
               <h2 className = "text-white font-serif font-bold text-2xl text-center truncate">{movie.answer}</h2>
@@ -107,13 +137,14 @@ export const MovieList = () => {
            </h1>
 
             <p className = " text-pink-400 font-semibold text-3xl"><br></br>Name of movie:</p>
-            <input placeholder = "Enter movie" className = "input input-add"></input>
+            <input placeholder = "Enter movie" className = "input input-add" value ={newAnswer} onChange = {(e)=> setNewAnswer(e.target.value)}></input>
 
             <p className = " text-pink-400 font-semibold text-3xl"><br></br>Insert Emojis:</p>
-            <input placeholder = "Enter emojis" className = "input input-add"></input>
+            <input placeholder = "Enter emojis" className = "input input-add" value ={newEmoji} onChange = {(e) => setNewEmoji(e.target.value)}></input>
 
             <p className = " text-pink-400 font-semibold text-3xl"><br></br>Upload movie poster:</p>
-            <input type= "file" className = "text-lg font-bold text-pink-400 border border-pink-400 file:bg-pink-300 file:text-white file:border-white"></input>
+            <input type= "file" accept = "image/*" className = "text-lg font-bold text-pink-400 border border-pink-400 file:bg-pink-300 file:text-white file:border-white"
+            onChange = {ImageUploadHandler}></input>
 
             <div className = " mt-auto flex gap-6 p-6 justify-center">
               <button
@@ -123,13 +154,36 @@ export const MovieList = () => {
              Close
             </button>
       
-            <button className="font-bold p-2 text-white text-xl rounded bg-green-500 hover:bg-green-300">
+            <button className="font-bold p-2 text-white text-xl rounded bg-green-500 hover:bg-green-300"
+             onClick={() => {
+              AddMovieHandler();
+              setShowAdded(!false)
+             }}>
               Add
             </button>
            
             </div>
          
-              
+              {showAdded && (
+                <div className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
+                      role="dialog"
+                      aria-modal="true">
+                
+                <div  className= "bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
+                  <p className='text-green-500 font-bold text-2xl'>🤪  Movie Added Successfully! 🤪</p>
+
+                  <div className = " mt-auto flex gap-6 p-6 justify-center">
+              <button
+              onClick={closePopup}
+              className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
+            >
+             Close
+            </button>
+            </div>
+                </div>
+
+                </div>
+              )}
 
           </div>
         </div>
