@@ -15,6 +15,7 @@ type MovieWrapperProps = {
 export default function MovieWrapper({ labelText, inputName, actionHandler ,userDisabled}: MovieWrapperProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 const { login } = useUser();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const text = inputRef.current?.value ?? "";
@@ -24,7 +25,9 @@ const { login } = useUser();
        login(text)
     }
    
-
+    if (inputRef.current) {
+    inputRef.current.value = "";
+  }
   };
 
   return (
