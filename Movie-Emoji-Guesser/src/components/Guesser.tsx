@@ -1,11 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useUser } from '../context/useUser';
 import MovieWrapper from './MovieWrapper';
 import { useNavigate } from 'react-router-dom';
 import MoviesDataset from '../data/movies.json';
 import { type MovieType } from '../types/MovieType';
 
-const movieItems = MoviesDataset as MovieType[];
+const Storage_Key = 'AllMovies';
+const defaultMovies = MoviesDataset as MovieType[];
+
 
 function pickRandomMovie(items: MovieType[]): MovieType | null {
   if (!Array.isArray(items) || items.length === 0) return null;
@@ -17,26 +19,53 @@ function emojisToString(emojis: string[], joiner = ' ') {
   return emojis.join(joiner);
 }
 
-function getRandomPuzzle() {
-  const m = pickRandomMovie(movieItems);
-  return {
-    emojisStr: m ? emojisToString(m.emojis, ' ') : '',
-    answer: m ? m.answer : '',
-  };
-}
-
 export const Guesser = () => {
   const { name } = useUser();
   const navigate = useNavigate();
 
-  const [{ emojisStr, answer }, setPuzzle] = useState(() => getRandomPuzzle());
+
+  const [movies, setMovies] = useState<MovieType[]>(() => {
+    try {
+      const raw = localStorage.getItem(Storage_Key);
+      const parsed = raw ? (JSON.parse(raw) as MovieType[]) : null;
+      return Array.isArray(parsed) ? parsed : defaultMovies;
+    } catch {
+      return defaultMovies;
+    }
+  });
+
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(Storage_Key);
+      const parsed = raw ? (JSON.parse(raw) as MovieType[]) : null;
+      setMovies(Array.isArray(parsed) ? parsed : defaultMovies);
+    } catch {
+      // ignore
+    }
+  }, []);
+
+
+  const getRandomPuzzle = useCallback(() => {
+    const m = pickRandomMovie(movies);
+    return {
+      emojisStr: m ? emojisToString(m.emojis, ' ') : '',
+      answer: m ? m.answer : '',
+    };
+  }, [movies]);
+
+  const [{ emojisStr, answer}, setPuzzle] = useState(() => getRandomPuzzle());
   const [guessesLeft, setGuessesLeft] = useState<number>(10);
   const [score, setScore] = useState<number>(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
 
+  useEffect(() => {
+    setPuzzle(getRandomPuzzle());
+  }, [movies, getRandomPuzzle]);
+
   const handleRandomize = useCallback(() => {
     setPuzzle(getRandomPuzzle());
-  }, []);
+  }, [getRandomPuzzle]);
 
   const handleGuess = useCallback(
     (text: string) => {
@@ -54,12 +83,11 @@ export const Guesser = () => {
         }
 
         if (next === 0) setShowPopup(true);
-         handleRandomize();
+
         return next;
       });
     },
     [answer, handleRandomize]
-   
   );
 
   const closePopup = () => {
@@ -74,26 +102,21 @@ export const Guesser = () => {
     <div className="text-4xl flex-1">
       <div className="justify-self-end">
         <label className="text-yellow-400 font-bold font-mono text-1xl">
-          Hi {name || 'Player'}! You have {guessesLeft}{' '}
-          {guessesLeft === 1 ? 'guess' : 'guesses'} left.
+          Hi {name || 'Player'}! You have {guessesLeft} {guessesLeft === 1 ? 'guess' : 'guesses'} left.
         </label>
       </div>
 
-
-
       <div>
         <MovieWrapper
-          labelText= {emojisStr || 'Click Randomize to start 🎲'}
+          labelText={emojisStr || 'Click Randomize to start 🎲'}
           inputName="movieGuess"
           actionHandler={handleGuess}
           disabled={guessesLeft === 0}
-          
         />
       </div>
 
       <div className="flex justify-self-center">
-        <button className="btn btn-random" onClick={handleRandomize} 
-        >
+        <button className="btn btn-random" onClick={handleRandomize}>
           Randomize
         </button>
       </div>
@@ -105,40 +128,26 @@ export const Guesser = () => {
           aria-modal="true"
         >
           <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
-            <button
-              onClick={closePopup}
-              className="absolute top-3 right-3 text-white hover:text-pink-400 text-2xl"
-            >
-              ×
-            </button>
-
-            <h2 className="text-3xl font-bold mb-3 text-yellow-500">
-              Game Over !
-            </h2>
-
+            <h2 className="text-3xl font-bold mb-3 text-yellow-500">Game Over !</h2>
             <p className="text-xl text-gray-700 mb-4">
-              You scored <span className="font-bold">{score/2}</span> out of 10!
+              You scored <span className="font-bold">{score}</span> out of 10!
             </p>
 
-            <div className = " mt-auto flex gap-6 p-6 justify-center">
+            <div className="mt-auto flex gap-6 p-6 justify-center">
               <button
-              onClick={closePopup}
-              className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
-            >
-             Close
-            </button>
-      
-             <button
-              onClick={retryGuess}
-              className="font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
-                  >
-             Retry 
-            </button>
-           
-            </div>
-         
-              
+                onClick={closePopup}
+                className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-500"
+              >
+                Close
+              </button>
 
+              <button
+                onClick={retryGuess}
+                className="font-bold p-2 text-white text-xl rounded bg-orange-500 hover:bg-orange-400"
+              >
+                Retry
+              </button>
+            </div>
           </div>
         </div>
       )}
