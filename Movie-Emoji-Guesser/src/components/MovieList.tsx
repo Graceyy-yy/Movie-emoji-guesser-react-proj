@@ -90,125 +90,129 @@ export const MovieList = () => {
       {movis.map((movie) => (
         <ul key={movie.id}>
            <li>
-            <div
-              className="flex flex-col border rounded-xl w-52 h-96 overflow-hidden relative cursor-pointer"
-              onMouseEnter={() => setHoveredId(movie.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >                
-               <img
-                className="absolute inset-0 w-full h-full object-cover"
-                src={movie.imageBase64 ?? `../src/images/${movie.answer}.jpg`}
-                alt={`${movie.answer} image`}
-              />
+    <div
+      className="flex flex-col border rounded-xl w-52 h-96 overflow-hidden relative cursor-pointer"
+      onMouseEnter={() => setHoveredId(movie.id)}
+      onMouseLeave={() => setHoveredId(null)}
+    >                
+        <img
+        className="absolute inset-0 w-full h-full object-cover"
+        src={movie.imageBase64 ?? `../src/images/${movie.answer}.jpg`}
+        alt={`${movie.answer} image`}
+      />
 
-              {hoveredId !== movie.id && (
-                <div className="absolute bottom-0 w-full bg-pink-300 px-3 py-2">
-                  <h2 className="text-white font-serif font-bold text-2xl text-center truncate">
-                    {movie.answer}
-                  </h2>
-                </div>
-              )}
-
-             {hoveredId === movie.id && (
-                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-end pb-6 gap-4 transition-all duration-300">
-                    <h2 className="text-white font-serif font-bold text-2xl text-center px-3">
-                      {movie.answer}
-                    </h2>
-                    <p className="text-white text-sm">Emojis: {movie.emojis}</p>
-                    <div className="flex gap-4">
-                      <button className="btn btn-random">Edit</button>
-                      <button
-                        className="btn btn-delete"
-                        onClick={() => deleteHandler(movie.id)}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </li>
-          </ul>
-        ))}
-
-        {showPopup && (
-          <div
-            className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
-            role="dialog"
-            aria-modal="true"
-          >
-            <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
-              <h1 className="text-yellow-400 font-bold text-4xl">
-                🎀 Add Movie 🎀
-              </h1>
-
-              <p className="text-pink-400 font-semibold text-3xl"><br />Name of movie:</p>
-              <input
-                placeholder="Enter movie"
-                className="input input-add"
-                value={newAnswer}
-                onChange={(e) => setNewAnswer(e.target.value)}
-              />
-
-              <p className="text-pink-400 font-semibold text-3xl"><br />Insert Emojis:</p>
-              <input
-                placeholder="Enter emojis"
-                className="input input-add"
-                value={newEmoji}
-                onChange={(e) => setNewEmoji(e.target.value)}
-              />
-
-              <p className="text-pink-400 font-semibold text-3xl"><br />Upload movie poster:</p>
-              <input
-                type="file"
-                accept="image/*"
-                className="text-lg font-bold text-pink-400 border border-pink-400 file:bg-pink-300 file:text-white file:border-white"
-                onChange={ImageUploadHandler}
-              />
-
-              <div className="mt-auto flex gap-6 p-6 justify-center">
-                <button
-                  onClick={closePopup}
-                  className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
-                >
-                  Close
-                </button>
-
-                <button
-                  className="font-bold p-2 text-white text-xl rounded bg-green-500 hover:bg-green-300"
-                  onClick={() => {
-                    AddMovieHandler();
-                    setShowAdded(true);
-                  }}
-                >
-                  Add
-                </button>
-              </div>
-
-              {showAdded && (
-                <div
-                  className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
-                  role="dialog"
-                  aria-modal="true"
-                >
-                  <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
-                    <p className='text-green-500 font-bold text-2xl'>🤪 Movie Added Successfully! 🤪</p>
-
-                    <div className="mt-auto flex gap-6 p-6 justify-center">
-                      <button
-                        onClick={closePopup}
-                        className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+    {hoveredId !== movie.id && (
+      <div className="absolute bottom-0 w-full bg-pink-300 px-3 py-2">
+         <h2 className="text-white font-serif font-bold text-2xl text-center truncate">
+          {movie.answer}
+        </h2>
       </div>
+    )}
+
+   {hoveredId === movie.id && (
+       <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-end pb-6 gap-4 transition-all duration-300">
+         <h2 className="text-white font-serif font-bold text-2xl text-center px-3">
+           {movie.answer}
+         </h2>
+         <p className="text-white text-sm">Emojis: {movie.emojis}</p>
+         <div className="flex gap-4">
+           <button className="btn btn-random">Edit</button>
+
+           <button
+             className="btn btn-delete"
+                        onClick={() => deleteHandler(movie.id)}
+           >
+             Delete
+            </button>
+
+         </div>
+       </div>
+     )}
+      </div>
+     </li>
+  </ul>
+))}
+
+  {showPopup && (
+    <div
+      className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
+      role="dialog"
+      aria-modal="true"
+    >
+  <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
+        <h1 className="text-yellow-400 font-bold text-4xl">
+          🎀 Add Movie 🎀
+        </h1>
+
+        <p className="text-pink-400 font-semibold text-3xl"><br />Name of movie:</p>
+        <input
+          placeholder="Enter movie"
+          className="input input-add"
+          value={newAnswer}
+          onChange={(e) => setNewAnswer(e.target.value)}
+        />
+
+        <p className="text-pink-400 font-semibold text-3xl"><br />Insert Emojis:</p>
+        <input
+          placeholder="Enter emojis"
+          className="input input-add"
+          value={newEmoji}
+          onChange={(e) => setNewEmoji(e.target.value)}
+        />
+
+        <p className="text-pink-400 font-semibold text-3xl"><br />Upload movie poster:</p>
+        <input
+          type="file"
+          accept="image/*"
+          className="text-lg font-bold text-pink-400 border border-pink-400 file:bg-pink-300 file:text-white file:border-white"
+          onChange={ImageUploadHandler}
+         />
+
+    <div className="mt-auto flex gap-6 p-6 justify-center">
+      <button
+        onClick={closePopup}
+        className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
+       >
+        Close
+      </button>
+
+      <button
+        className="font-bold p-2 text-white text-xl rounded bg-green-500 hover:bg-green-300"
+        onClick={() => {
+          AddMovieHandler();
+          setShowAdded(true);
+        }}
+      >
+        Add
+      </button>
+    </div>
+
+ {showAdded && (
+    <div
+      className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
+
+        <p className='text-green-500 font-bold text-2xl'>🤪 Movie Added Successfully! 🤪</p>
+
+        <div className="mt-auto flex gap-6 p-6 justify-center">
+          <button
+            onClick={closePopup}
+            className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
+          >
+            Close
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  )}
+</div>
+</div>
+)}
+    </div>
     </div>
   )
 }
