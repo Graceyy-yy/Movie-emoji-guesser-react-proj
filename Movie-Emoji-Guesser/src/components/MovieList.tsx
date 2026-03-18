@@ -2,13 +2,15 @@ import React from 'react'
 import MoviesDataset from '../data/movies.json'
 import type { MovieType } from '../types/MovieType'
 import { useEffect,useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { useState } from 'react';
+import PopUp from './PopUp';
 
 const movies= MoviesDataset as MovieType[];
 
+
 export const MovieList = () => {
-  
+   const [showPopup, setShowPopup] = useState<boolean>(false);
   const Storage_Key= 'AllMovies'
 
   //to Initialize from local Storage eelse fall back to bundled dataset
@@ -42,25 +44,22 @@ export const MovieList = () => {
   const deleteHandler =useCallback((id:MovieType['id']) =>{
     setMovis(prev=> prev.filter(movie=>movie.id !==id))
     console.log('jst deleted movie with id: '+id)
-  },[])
-   const [showPopup, setShowPopup] = useState<boolean>(false);
-   const navigate = useNavigate();
+  },[]);
 
-     const closePopup = () => {
-    navigate('/');
-  };
-
+const [popupMode, setPopupMode] = useState<"Add" | "Edit">("Add");
+const [movieBeingEdited, setMovieBeingEdited] = useState<MovieType | null>(null);
 
 const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answer'], newEmojis:MovieType['emojis']) => {
   setMovis(prev =>
     prev.map(item =>(
-      item.id === id
-        ? { ...item, answer: newAnswer, emojis: newEmojis }
-        : item
+      item.id === id? 
+      { ...item, answer: newAnswer, emojis: newEmojis } : item
     )
     )
   )
-  console.log(`Just updated the movie wih id: +id+ ${newAnswer} and emjos: ${newEmojis.toString}`)
+
+  console.log(`Just updated the movie wih id: ${id}: ${newAnswer} and emjos: ${newEmojis}`)
+  
 }, [])
   return (
 
@@ -70,10 +69,32 @@ const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answ
         🌸 List of movies 🌸
            </h1>
               
-      <button className="h-10 w-20 text-xs btn btn-done" onClick={() => setShowPopup(true)}
->
+      <button className="h-10 w-20 text-xs btn btn-done" onClick={() => {setPopupMode("Add"); setMovieBeingEdited(null);setShowPopup(true)}}>
   Add Movie
 </button>
+
+
+{showPopup  && (
+  <PopUp 
+    mode={popupMode}
+    movie={movieBeingEdited}
+    popUpTitle={popupMode+" Movie"}
+    buttonFuncType={popupMode}
+    setShowPopup={setShowPopup}
+ 
+    
+    onAdd={(newMovie) => {
+      setMovis(prev => [...prev, newMovie]);
+    }}
+    onSave={(id, newName, newEmojis) => {
+
+      
+      updateHandler(id, newName, newEmojis);
+    }}
+
+  />
+)}
+
 
       </div>
      
@@ -83,7 +104,7 @@ const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answ
 
     
         {movis.map((movie)=>(
-
+          
           <ul key ={movie.id}>
                <li >
 
@@ -97,7 +118,7 @@ const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answ
             
 
           <div className = " mt-auto flex gap-4 p-2 justify-center">
-            <button className = " btn btn-random" onClick={()=>updateHandler(movie.id,"",[])}>Edit</button>
+            <button className = " btn btn-random" onClick={()=>{setPopupMode("Edit"); setMovieBeingEdited(movie); setShowPopup(true)}}>Edit</button>
             <button className = " btn btn-delete"  onClick={()=>deleteHandler(movie.id)}>Delete</button>
           </div>
           
@@ -108,46 +129,7 @@ const updateHandler = useCallback((id:MovieType['id'], newAnswer:MovieType['answ
          
         ))}
 
-        {showPopup && (
-        <div
-          className="fixed inset-0 bg-pink-300 flex items-center justify-center z-50"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="bg-white rounded-xl shadow-xl p-6 max-w-md w-full text-center relative">
-           
-           <h1 className = "text-yellow-400 font-bold text-4xl">
-           🎀 Add Movie 🎀
-           </h1>
 
-            <p className = " text-pink-400 font-semibold text-3xl"><br></br>Name of movie:</p>
-            <input placeholder = "Enter movie" className = "input input-add"></input>
-
-            <p className = " text-pink-400 font-semibold text-3xl"><br></br>Insert Emojis:</p>
-            <input placeholder = "Enter emojis" className = "input input-add"></input>
-
-            <p className = " text-pink-400 font-semibold text-3xl"><br></br>Upload movie poster:</p>
-            <input type= "file" className = "text-lg font-bold text-pink-400 border border-pink-400 file:bg-pink-300 file:text-white file:border-white"></input>
-
-            <div className = " mt-auto flex gap-6 p-6 justify-center">
-              <button
-              onClick={closePopup}
-              className="font-bold p-2 text-white text-xl rounded bg-red-600 hover:bg-red-400"
-            >
-             Close
-            </button>
-      
-            <button className="font-bold p-2 text-white text-xl rounded bg-green-500 hover:bg-green-300">
-              Add
-            </button>
-           
-            </div>
-         
-              
-
-          </div>
-        </div>
-      )}
     </div>
 
     </div>
